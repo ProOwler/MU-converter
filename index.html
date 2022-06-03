@@ -11,13 +11,46 @@
 </head>
 
 <body>
-    <div class="container">
-        <input id="value-input" type="text">
-        <input id="btn-swap-mu" type="image" src="img/swap-icon.svg" width="30px">
-        <div id="block-result">
+    <h1>Конвертер величин</h1>
+    <main class="container">
+        <!-- Выпадающий список с группами величин -->
+        <div class="mu-type">
+            <select class="select--mu-group" size="1" name="dropdown-mu-group">
+                <option value="sample1">sample1</option>
+                <option value="sample2">sample2</option>
+            </select>
+        </div>
+
+        <!-- 2 блока и кнопка "поменять местами" между ними -->
+        <div class="mu-option1">
+            <!-- Блок 1. Выпадающий список -->
+            <select class="select--mu-source" size="1" name="dropdown-mu-source">
+                <option value="sampleMU-1">sampleMU-1-src</option>
+                <option value="sampleMU-2">sampleMU-2-src</option>
+            </select>
+            <!-- Блок 1. Поле ввода -->
+            <textarea name="textfield-input-value" id="textfield-input" cols="20" rows="1" class="text-value-input">
+            </textarea>
+        </div>
+        <!-- Кнопка "поменять местами" -->
+        <button class="btn-swap">
+            <img src="img/swap-icon.svg" alt="Стрелочки туда-обратно" width="30px">
+        </button>
+
+        <div class="mu-option2">
+            <!-- Блок 2. Выпадающий список -->
+            <select class="select--mu-target" size="1" name="dropdown-mu-target">
+                <option value="sampleMU-1">sampleMU-1-target</option>
+                <option value="sampleMU-2">sampleMU-2-target</option>
+            </select>
+            <!-- Блок 2. Поле ввода -->
+            <textarea readonly name="textfield-output-value" id="textfield-output" cols="20" rows="1"
+                class="text-value-output">
+
+            </textarea>
 
         </div>
-    </div>
+    </main>
 </body>
 
 </html>
