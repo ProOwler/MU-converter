@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=1024, initial-scale=1.0">
     <title>Конвертер величин</title>
     <script src="js/code.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bitter&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital@0;1&family=Source+Sans+Pro:ital@0;1&display=swap');
+    </style>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
 </head>
@@ -30,13 +33,14 @@
                 <option value="sampleMU-2">sampleMU-2-src</option>
             </select>
             <!-- Блок 1. Поле ввода -->
-            <textarea name="textfield-input-value" id="textfield-input" cols="20" rows="1" class="text-value-input">
-            </textarea>
+            <input id="textfield-input" maxlength="15" value="" class="text-value-input">
         </div>
         <!-- Кнопка "поменять местами" -->
-        <button class="btn-swap">
-            <img src="img/swap-icon.svg" alt="Стрелочки туда-обратно">
-        </button>
+        <div class="mu-swap">
+            <button class="btn-swap">
+                <img src="img/swap-icon.svg" alt="Стрелочки туда-обратно">
+            </button>
+        </div>
 
         <div class="mu-option2">
             <!-- Блок 2. Выпадающий список -->
@@ -45,11 +49,7 @@
                 <option value="sampleMU-2">sampleMU-2-target</option>
             </select>
             <!-- Блок 2. Поле ввода -->
-            <textarea readonly name="textfield-output-value" id="textfield-output" cols="20" rows="1"
-                class="text-value-output">
-
-            </textarea>
-
+            <input id="textfield-output" readonly maxlength="15" value="" class="text-value-output">
         </div>
     </main>
 </body>

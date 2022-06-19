@@ -1,15 +1,16 @@
 body {
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'PT Sans', 'Montserrat', Arial, sans-serif;
 }
 
 h1 {
+    margin: 0 3%;
     font-weight: 600;
     color: rgb(21, 48, 109);
     font-size: 2em;
 }
 
 main.container {
-    margin: 0 10%;
+    margin: 0 5%;
 
 }
 
@@ -17,34 +18,42 @@ div.mu-type {
     margin: 16px 0;
 }
 
-
-/*display: block;*/
-
-div.mu-option1 {
-    float: left;
-}
-
-div.mu-option2 {
+div.mu-option1,
+div.mu-option2,
+div.mu-swap {
     float: left;
 }
 
 select {
     display: block;
     margin-bottom: 12px;
+    font-size: 14px;
+    font-family: 'PT Sans', 'Montserrat', Arial, sans-serif;
 }
 
-.select--mu-source,
-.select--mu-target,
-textarea {
+div.mu-type,
+div.mu-option1,
+div.mu-option2 {
     width: 128px;
 }
 
-textarea {
+.select--mu-group,
+.select--mu-source,
+.select--mu-target {
+    width: 100%;
+}
+
+/*ширина на 8рх меньше контейнера из-за границ*/
+.text-value-input,
+.text-value-output {
     display: block;
+    height: 2em;
+    width: 120px;
+    line-height: 2em;
 }
 
 button.btn-swap {
-    float: left;
+    display: block;
     margin: 0px 8px;
     width: 30px;
     height: 30px;
