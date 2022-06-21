@@ -1,6 +1,9 @@
 const dropdownMUType = document.querySelector("select.select--mu-group");
 const dropdownMUSource = document.querySelector("select.select--mu-source");
 const dropdownMUTarget = document.querySelector("select.select--mu-target");
+const fieldSource = document.querySelector("#textfield-input");
+const fieldTarget = document.querySelector("#textfield-output");
+const buttonSwap = document.querySelector("button.btn-swap");
 
 // типы единиц измерений
 const typesMU = {
@@ -113,8 +116,46 @@ function calculateConversion(source, sourceMU, targetMU, typeMU, codex) {
             item["source"] == sourceMU &&
             item["target"] == targetMU
     );
+    if (args == undefined) {
+        return undefined;
+    }
     let result =
         (args["kMult"] / args["kDiv"]) * (source + args["bPar"]) +
         args["bMain"];
     return Math.round(100 * result) / 100;
 }
+
+/* Функция-коллбэк, которая выполняется при возникновении события,
+ * выполняет пересчёт и вывод данных
+ */
+function conversionEvent() {
+    if (fieldSource.value == "") {
+        fieldSource.value = 0;
+    }
+    let conversionResult = calculateConversion(
+        Number(fieldSource.value),
+        dropdownMUSource.value,
+        dropdownMUTarget.value,
+        dropdownMUType.value,
+        convertMU
+    );
+    if (conversionResult == undefined) {
+        fieldTarget.value = "";
+        fieldSource.value = "";
+    } else {
+        fieldTarget.value = conversionResult;
+    }
+}
+
+fieldSource.addEventListener("input", conversionEvent);
+
+[dropdownMUSource, dropdownMUTarget, dropdownMUType].forEach((element) => {
+    element.addEventListener("change", conversionEvent);
+});
+
+buttonSwap.addEventListener("click", (event) => {
+    let selectedSource = dropdownMUSource.value;
+    dropdownMUSource.value = dropdownMUTarget.value;
+    dropdownMUTarget.value = selectedSource;
+    conversionEvent();
+});
